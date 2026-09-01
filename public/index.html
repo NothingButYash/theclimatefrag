@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Climate — Maison de Parfum</title>
+<meta name="description" content="The Climate — a fragrance house made in India, inspired by French artistry. A scent for every soul, a fragrance for every climate.">
+<meta property="og:title" content="The Climate — Maison de Parfum">
+<meta property="og:description" content="Luxury meets identity in every note. Made in India, inspired by French artistry.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230a0a0b'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='%23c8a15c' font-family='Georgia'%3ETC%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#0a0a0b;
+    --ink-2:#101012;
+    --espresso:#1c1512;
+    --espresso-2:#241b17;
+    --parchment:#ece4d6;
+    --parchment-dim:#a89f90;
+    --gold:#c8a15c;
+    --gold-dim:#8a7146;
+    --bordeaux:#7a1a26;
+    --bordeaux-2:#5c1219;
+    --cream:#f5f1e8;
+    --cream-ink:#241b17;
+    --cream-dim:#6b5f4f;
+    --line:rgba(236,228,214,0.14);
+    --line-oncream:rgba(36,27,23,0.12);
+    --ease:cubic-bezier(.19,1,.22,1);
+    --ease-soft:cubic-bezier(.22,.61,.36,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--parchment);
+    font-family:'Inter',sans-serif;
+    font-weight:300;
+    line-height:1.65;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--bordeaux);color:var(--parchment);}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;}
+  h1,h2{ font-family:'Mrs Saint Delafield',cursive; font-weight:400; }
+  h3{ font-family:'Cormorant Garamond',serif; font-weight:500; }
+  .eyebrow{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:15px;
+    letter-spacing:0.26em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:600;
+  }
+  .light .eyebrow{ color:var(--bordeaux); }
+  :focus-visible{ outline:1px solid var(--gold); outline-offset:4px; }
+  .wrap{ max-width:1240px; margin:0 auto; padding:0 40px; }
+  .light{ background:var(--cream); color:var(--cream-ink); }
+  .light .parchment-dim-text{ color:var(--cream-dim); }
+
+  /* ---------- PRELOADER ---------- */
+  #preloader{
+    position:fixed; inset:0; z-index:2000;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--ink);
+  }
+  #preloader .pl-word{
+    font-family:'Mrs Saint Delafield',cursive;
+    font-size:clamp(40px,7vw,80px);
+    color:var(--parchment);
+    opacity:0;
+    animation:plFade 2.1s var(--ease-soft) forwards;
+  }
+  #preloader .pl-line{
+    position:absolute; bottom:42%; width:120px; height:1px;
+    background:var(--line); overflow:hidden;
+  }
+  #preloader .pl-line::after{
+    content:''; position:absolute; inset:0; background:var(--gold);
+    transform:scaleX(0); transform-origin:left;
+    animation:plBar 1.8s var(--ease-soft) forwards;
+  }
+  .pl-panel{ position:fixed; top:0; bottom:0; width:50%; background:var(--ink); z-index:1999; transition:transform 1.1s var(--ease); }
+  .pl-panel.l{ left:0; } .pl-panel.r{ right:0; }
+  body.loaded .pl-panel.l{ transform:translateX(-100%); }
+  body.loaded .pl-panel.r{ transform:translateX(100%); }
+  body.loaded #preloader{ opacity:0; transition:opacity .5s; pointer-events:none; }
+  @keyframes plFade{
+    0%{opacity:0; filter:blur(10px); transform:translateY(10px);}
+    30%{opacity:1; filter:blur(0); transform:translateY(0);}
+    80%{opacity:1;} 100%{opacity:.85;}
+  }
+  @keyframes plBar{ 0%{transform:scaleX(0);} 100%{transform:scaleX(1);} }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:22px 40px;
+    transition:padding .6s var(--ease), background .6s var(--ease), transform .6s var(--ease), border-color .6s var(--ease);
+    border-bottom:1px solid transparent;
+  }
+  header.nav.scrolled{
+    padding:13px 40px; background:rgba(10,10,11,0.88);
+    backdrop-filter:blur(10px); border-bottom:1px solid var(--line);
+  }
+  header.nav.hide{ transform:translateY(-100%); }
+  .logo{ font-family:'Mrs Saint Delafield',cursive; font-size:32px; line-height:1.5; padding-top:0.1em; display:inline-block; }
+  nav.links{ display:flex; gap:40px; list-style:none; }
+  nav.links a{
+    font-family:'Cormorant Garamond',serif; font-size:15px; font-weight:600;
+    letter-spacing:0.12em; text-transform:uppercase; position:relative; padding-bottom:4px;
+  }
+  nav.links a::after{
+    content:''; position:absolute; left:0; bottom:0; width:0%; height:1px;
+    background:var(--gold); transition:width .5s var(--ease-soft);
+  }
+  nav.links a:hover::after{ width:100%; }
+  .nav-right{ display:flex; align-items:center; gap:22px; }
+  .wishlist-btn{
+    position:relative; display:flex; align-items:center; justify-content:center;
+    width:36px; height:36px; background:none; border:none; color:var(--parchment); cursor:pointer;
+  }
+  .wishlist-btn svg{ width:20px; height:20px; transition:transform .3s var(--ease-soft), fill .3s; }
+  .wishlist-btn.has-items svg{ fill:var(--gold); stroke:var(--gold); }
+  .wishlist-count{
+    position:absolute; top:-2px; right:-2px; background:var(--bordeaux); color:var(--parchment);
+    font-size:10px; font-family:'Inter',sans-serif; width:16px; height:16px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; opacity:0; transform:scale(0);
+    transition:opacity .3s var(--ease-soft), transform .3s var(--ease-soft);
+  }
+  .wishlist-count.show{ opacity:1; transform:scale(1); }
+  .nav-cta{
+    font-family:'Cormorant Garamond',serif; font-size:14px; font-weight:600;
+    letter-spacing:0.12em; text-transform:uppercase; border:1px solid var(--gold-dim);
+    padding:9px 20px; transition:background .4s var(--ease-soft), color .4s var(--ease-soft), clip-path .4s var(--ease-soft);
+    clip-path:polygon(0 0,100% 0,100% 100%,0 100%);
+  }
+  .nav-cta:hover{
+    background:var(--gold); color:var(--ink);
+    clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px);
+  }
+  .burger{ display:none; flex-direction:column; gap:6px; background:none; border:none; cursor:pointer; z-index:200; }
+  .burger span{ width:26px; height:1px; background:var(--parchment); transition:transform .4s var(--ease), opacity .4s var(--ease); }
+  .burger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .burger.open span:nth-child(2){ opacity:0; }
+  .burger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  .mobile-menu{
+    position:fixed; inset:0; background:var(--ink); z-index:150;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:28px;
+    clip-path:polygon(0 0,100% 0,100% 0,0 0); transition:clip-path .9s var(--ease); pointer-events:none;
+  }
+  .mobile-menu.open{ clip-path:polygon(0 0,100% 0,100% 100%,0 100%); pointer-events:auto; }
+  .mobile-menu a{ font-family:'Mrs Saint Delafield',cursive; font-size:40px; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; position:relative; padding:140px 24px 100px;
+    background:
+      radial-gradient(ellipse at 50% 20%, rgba(122,26,38,0.22), transparent 55%),
+      radial-gradient(ellipse at 80% 90%, rgba(200,161,92,0.10), transparent 50%),
+      var(--ink);
+    overflow:hidden; --mx:0px; --my:0px;
+  }
+  .hero::before{
+    content:''; position:absolute; inset:-40px;
+    background-image:linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:64px 64px; opacity:0.22;
+    mask-image:radial-gradient(ellipse at 50% 40%, black, transparent 70%);
+    transform:translate(var(--mx), var(--my)); transition:transform .6s var(--ease-soft);
+  }
+  .hero-eyebrow{ opacity:0; }
+  body.loaded .hero-eyebrow{ animation:riseIn 1.1s var(--ease-soft) .1s forwards; }
+  .hero h1{
+    font-size:clamp(80px,15vw,190px); font-weight:400; line-height:1.25; margin:0 0 26px; padding-top:0.1em;
+    position:relative; z-index:2; clip-path:polygon(0 -30%,0 -30%,0 100%,0 100%); filter:blur(14px);
+  }
+  body.loaded .hero h1{ animation:wipeIn 1.7s var(--ease-soft) .2s forwards; }
+  .hero p.tagline{ max-width:520px; font-size:17px; color:var(--parchment-dim); font-weight:300; opacity:0; }
+  body.loaded .hero p.tagline{ animation:riseIn 1.1s var(--ease-soft) 1.2s forwards; }
+  .hero .scroll-cue{
+    position:absolute; bottom:38px; left:50%; transform:translateX(-50%);
+    display:flex; flex-direction:column; align-items:center; gap:10px;
+    font-size:10px; letter-spacing:0.28em; text-transform:uppercase; color:var(--parchment-dim); opacity:0;
+  }
+  body.loaded .hero .scroll-cue{ animation:riseIn 1.1s var(--ease-soft) 1.7s forwards; }
+  .scroll-cue .line{ width:1px; height:36px; background:linear-gradient(var(--gold), transparent); animation:pulseLine 3s ease-in-out infinite; }
+  @keyframes wipeIn{
+    0%{ clip-path:polygon(0 -30%,0 -30%,0 100%,0 100%); filter:blur(14px); }
+    55%{ filter:blur(3px); }
+    100%{ clip-path:polygon(0 -30%,100% -30%,100% 100%,0 100%); filter:blur(0); }
+  }
+  @keyframes riseIn{ from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:translateY(0);} }
+  @keyframes pulseLine{ 0%,100%{transform:scaleY(1); opacity:.5;} 50%{transform:scaleY(.6); opacity:1;} }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee-band{
+    background:linear-gradient(100deg, var(--bordeaux) 0%, var(--bordeaux-2) 100%);
+    overflow:hidden; padding:18px 0; transform:skewY(-1.2deg); margin:0 0 -8px; position:relative; z-index:3;
+  }
+  .marquee-track{ display:flex; width:max-content; animation:scrollLeft 48s linear infinite; transform:skewY(1.2deg); }
+  .marquee-track span{ font-family:'Mrs Saint Delafield',cursive; font-size:27px; padding:0 30px; white-space:nowrap; color:var(--parchment); opacity:.92; }
+  .marquee-track span.dot{ color:var(--gold); opacity:1; font-family:'Inter',sans-serif; }
+  @keyframes scrollLeft{ from{transform:translateX(0) skewY(1.2deg);} to{transform:translateX(-50%) skewY(1.2deg);} }
+
+  /* ---------- SECTION GENERIC ---------- */
+  section{ position:relative; padding:140px 0; }
+  .section-head{ text-align:center; max-width:640px; margin:0 auto 64px; }
+  .section-head h2{ font-size:clamp(46px,6.5vw,78px); margin-top:8px; }
+  .light .section-head h2{ color:var(--cream-ink); }
+  .underline{ width:150px; height:14px; margin:14px auto 0; display:block; overflow:visible; }
+  .underline path{
+    fill:none; stroke:var(--gold); stroke-width:2; stroke-linecap:round;
+    stroke-dasharray:220; stroke-dashoffset:220; transition:stroke-dashoffset 1.1s var(--ease-soft) .3s;
+  }
+  .light .underline path{ stroke:var(--bordeaux); }
+  .section-head.in-view .underline path{ stroke-dashoffset:0; }
+
+  .reveal{
+    opacity:0; transform:translateY(22px);
+    transition:opacity .85s var(--ease-soft), transform .85s var(--ease-soft);
+  }
+  .reveal.in-view{ opacity:1; transform:translateY(0); }
+  .reveal.d1{ transition-delay:.1s; }
+  .reveal.d2{ transition-delay:.2s; }
+  .reveal.d3{ transition-delay:.3s; }
+
+  .zigzag{
+    height:26px; background:var(--espresso);
+    clip-path:polygon(0 100%,4% 0,8% 100%,12% 0,16% 100%,20% 0,24% 100%,28% 0,32% 100%,36% 0,40% 100%,44% 0,48% 100%,52% 0,56% 100%,60% 0,64% 100%,68% 0,72% 100%,76% 0,80% 100%,84% 0,88% 100%,92% 0,96% 100%,100% 0,100% 100%,0 100%);
+  }
+  .zigzag.oncream{ background:var(--cream); }
+  .zigzag.tocream{ background:var(--espresso-2); }
+
+  /* ---------- ABOUT / MAISON ---------- */
+  .maison{ background:var(--espresso); }
+  .maison-grid{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:80px; align-items:center; }
+  .maison-mark{ font-family:'Mrs Saint Delafield',cursive; font-size:clamp(56px,8.5vw,110px); line-height:1.35; padding-top:0.12em; color:transparent; -webkit-text-stroke:1px var(--gold); }
+  .maison-copy p{ font-size:18px; color:var(--parchment); margin-bottom:20px; font-weight:300; }
+  .maison-copy p.lede{ font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:500; font-size:30px; color:var(--parchment); line-height:1.4; margin-bottom:24px; }
+  .flag-line{ display:flex; align-items:center; gap:10px; margin-top:30px; font-family:'Cormorant Garamond',serif; font-size:14px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); }
+  .flag-line .sep{ color:var(--parchment-dim); }
+
+  /* ---------- COLLECTION ---------- */
+  .collection{ background:var(--ink); }
+  .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line); border:1px solid var(--line); }
+  .card{ background:var(--ink); position:relative; overflow:hidden; }
+  .card-frame{
+    aspect-ratio:3/4; position:relative; overflow:hidden;
+    background:linear-gradient(160deg, var(--espresso) 0%, var(--ink-2) 100%);
+    clip-path:polygon(0 0,0 0,0 100%,0 100%); transition:clip-path 1s var(--ease-soft);
+  }
+  .card.in-view .card-frame{ clip-path:polygon(0 0,100% 0,100% 100%,0 100%); }
+  .card-frame img{
+    width:100%; height:100%; object-fit:cover; object-position:center 30%;
+    transform:scale(1.12); filter:grayscale(40%) brightness(.8) contrast(1.04);
+    transition:transform 1.4s var(--ease-soft), filter 1.4s var(--ease-soft), box-shadow .4s var(--ease-soft);
+  }
+  .card.in-view .card-frame img{ transform:scale(1); filter:grayscale(0%) brightness(1) contrast(1); }
+  .card-frame:hover img{ transform:scale(1.04); box-shadow:inset 0 0 0 9999px rgba(0,0,0,0); }
+  .card-frame::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg, transparent 55%, rgba(10,10,11,0.55) 100%); pointer-events:none; }
+  .wishlist-heart{
+    position:absolute; top:14px; right:14px; z-index:2; width:34px; height:34px;
+    background:rgba(10,10,11,0.45); backdrop-filter:blur(4px); border:1px solid rgba(236,228,214,0.3);
+    border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer;
+    transition:background .3s, border-color .3s, transform .3s var(--ease-soft);
+  }
+  .wishlist-heart svg{ width:15px; height:15px; stroke:var(--parchment); fill:none; transition:fill .3s, stroke .3s; }
+  .wishlist-heart.saved{ border-color:var(--gold); }
+  .wishlist-heart.saved svg{ fill:var(--gold); stroke:var(--gold); }
+  .wishlist-heart:hover{ transform:scale(1.1); }
+  .card-info{ padding:24px 26px 30px; }
+  .card-info .num{ font-family:'Cormorant Garamond',serif; font-size:14px; font-weight:600; color:var(--gold-dim); letter-spacing:0.16em; margin-bottom:6px; display:block; }
+  .card-info h3{ font-size:32px; font-weight:500; margin-bottom:6px; line-height:1.1; }
+  .card-info p.note-line{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; color:var(--parchment-dim); font-weight:500; margin-bottom:14px; }
+  .view-notes{
+    font-family:'Inter',sans-serif; font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--gold); background:none; border:none; padding:0; cursor:pointer; display:inline-flex; align-items:center; gap:6px;
+  }
+  .view-notes:hover{ opacity:.7; }
+  .view-notes svg{ width:11px; height:11px; }
+
+  /* ---------- QUIZ (light section) ---------- */
+  .quiz-section{ text-align:center; }
+  .quiz-section .section-head p.lead{ font-size:16px; color:var(--cream-dim); margin-top:14px; max-width:480px; margin-left:auto; margin-right:auto; }
+  .quiz-cta{
+    margin-top:34px; display:inline-flex; align-items:center; gap:12px;
+    font-family:'Cormorant Garamond',serif; font-size:16px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--cream); background:var(--bordeaux); border:none; padding:16px 34px; cursor:pointer;
+    clip-path:polygon(0 0,100% 0,100% 100%,0 100%); transition:clip-path .4s var(--ease-soft), background .4s;
+  }
+  .quiz-cta:hover{ background:var(--bordeaux-2); clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px); }
+  .quiz-hint{ margin-top:16px; font-size:12px; color:var(--cream-dim); letter-spacing:.04em; }
+
+  /* ---------- CRAFT ---------- */
+  .craft{ background:var(--espresso-2); }
+  .craft-grid{ display:grid; grid-template-columns:1fr 1fr; gap:70px; }
+  .craft-panel{
+    aspect-ratio:4/5; background:linear-gradient(155deg, var(--ink-2), var(--espresso)); position:relative;
+    display:flex; align-items:flex-end; padding:34px;
+    clip-path:polygon(0 0,100% 0,100% 100%,40px 100%,0 calc(100% - 40px)); border:1px solid var(--line); overflow:hidden;
+  }
+  .craft-panel .panel-content{ position:relative; z-index:2; }
+  .craft-panel span.label{ font-family:'Mrs Saint Delafield',cursive; font-size:32px; color:var(--gold); display:block; }
+  .craft-panel span.sub{ font-family:'Inter',sans-serif; font-size:12px; letter-spacing:.08em; color:var(--parchment-dim); display:block; margin-top:6px; }
+  .craft-panel::before{ content:''; position:absolute; inset:0; background:repeating-linear-gradient(115deg, rgba(200,161,92,0.06) 0 2px, transparent 2px 40px); }
+  .play-btn{
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:64px; height:64px; border-radius:50%; border:1px solid var(--gold); display:flex; align-items:center; justify-content:center;
+    z-index:2; transition:transform .4s var(--ease-soft), background .4s;
+  }
+  .craft-panel:hover .play-btn{ transform:translate(-50%,-50%) scale(1.1); background:rgba(200,161,92,0.12); }
+  .play-btn svg{ width:16px; height:16px; fill:var(--gold); margin-left:2px; }
+  .craft-copy h2{ font-size:clamp(44px,5.5vw,66px); margin-bottom:22px; line-height:1.15; }
+  .craft-copy p{ font-size:16px; color:var(--parchment-dim); margin-bottom:20px; max-width:480px; }
+  .craft-list{ list-style:none; margin-top:26px; border-top:1px solid var(--line); }
+  .craft-list li{ display:flex; justify-content:space-between; padding:15px 0; border-bottom:1px solid var(--line); font-size:13px; letter-spacing:0.06em; }
+  .craft-list li span:first-child{ color:var(--parchment); font-family:'Inter',sans-serif; }
+  .craft-list li span:last-child{ color:var(--gold); font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; }
+
+  /* ---------- REVIEWS (light section) ---------- */
+  .reviews-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line-oncream); border:1px solid var(--line-oncream); }
+  .review-card{ background:var(--cream); padding:36px 30px; }
+  .stars{ display:flex; gap:3px; margin-bottom:16px; }
+  .stars svg{ width:14px; height:14px; fill:var(--bordeaux); }
+  .review-card p.quote{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:18px; color:var(--cream-ink); line-height:1.5; margin-bottom:18px; }
+  .review-meta{ display:flex; align-items:center; justify-content:space-between; font-size:12px; color:var(--cream-dim); }
+  .verified{ display:inline-flex; align-items:center; gap:5px; color:var(--bordeaux); font-weight:600; letter-spacing:.02em; }
+  .verified svg{ width:12px; height:12px; fill:var(--bordeaux); }
+
+  /* ---------- NEWSLETTER / LA LISTE ---------- */
+  .newsletter{ background:var(--bordeaux-2); text-align:center; padding:120px 0; }
+  .newsletter h2{ font-size:clamp(44px,7vw,72px); margin:10px 0 14px; }
+  .newsletter p{ color:rgba(236,228,214,0.75); max-width:460px; margin:0 auto 40px; font-size:15px; }
+  form.signup{ display:flex; max-width:440px; margin:0 auto; border-bottom:1px solid var(--gold); padding-bottom:10px; gap:16px; }
+  form.signup input{ flex:1; background:transparent; border:none; color:var(--parchment); font-size:15px; font-family:'Inter',sans-serif; font-weight:300; outline:none; }
+  form.signup input::placeholder{ color:rgba(236,228,214,0.45); }
+  form.signup button{
+    background:none; border:none; color:var(--gold); font-family:'Cormorant Garamond',serif; font-size:15px; font-weight:600;
+    letter-spacing:0.12em; text-transform:uppercase; cursor:pointer; white-space:nowrap; transition:opacity .4s;
+  }
+  form.signup button:hover{ opacity:.65; }
+  .form-note{ margin-top:16px; font-size:12px; color:var(--gold); opacity:0; height:0; transition:opacity .6s; }
+  .form-note.show{ opacity:1; height:auto; }
+  .tier-row{ display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin-top:48px; }
+  .tier-chip{ border:1px solid rgba(236,228,214,0.22); padding:14px 22px; text-align:left; max-width:210px; }
+  .tier-chip .tier-name{ font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:600; color:var(--gold); font-size:16px; display:block; margin-bottom:4px; }
+  .tier-chip .tier-desc{ font-size:12px; color:rgba(236,228,214,0.65); }
+
+  /* ---------- TRUST ROW ---------- */
+  .trust-row{ border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:34px 0; }
+  .trust-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+  .trust-item{ display:flex; align-items:center; gap:12px; }
+  .trust-item svg{ width:22px; height:22px; stroke:var(--gold); fill:none; flex-shrink:0; }
+  .trust-item span{ font-size:12px; color:var(--parchment-dim); letter-spacing:.02em; line-height:1.4; }
+
+  /* ---------- FOOTER ---------- */
+  footer{ background:var(--ink); padding:0 0 30px; }
+  .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:50px; padding:70px 0 50px; }
+  .footer-brand .logo{ font-size:38px; margin-bottom:14px; display:block; }
+  .footer-brand p{ color:var(--parchment-dim); font-size:14px; max-width:280px; }
+  .footer-col h4{ font-family:'Cormorant Garamond',serif; font-size:14px; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); margin-bottom:18px; font-weight:600; }
+  .footer-col ul{ list-style:none; }
+  .footer-col li{ margin-bottom:12px; }
+  .footer-col a{ font-size:14px; color:var(--parchment-dim); transition:color .4s; }
+  .footer-col a:hover{ color:var(--parchment); }
+  .footer-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top:26px; border-top:1px solid var(--line); font-size:12px; color:var(--parchment-dim); flex-wrap:wrap; gap:14px; }
+  .back-top{ font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); display:flex; align-items:center; gap:8px; }
+
+  /* ---------- MODALS (quiz + product notes) ---------- */
+  .modal-overlay{
+    position:fixed; inset:0; z-index:500; background:rgba(10,10,11,0.78); backdrop-filter:blur(3px);
+    display:flex; align-items:center; justify-content:center; padding:24px;
+    opacity:0; pointer-events:none; transition:opacity .4s var(--ease-soft);
+  }
+  .modal-overlay.open{ opacity:1; pointer-events:auto; }
+  .modal-box{
+    background:var(--espresso); border:1px solid var(--line); max-width:640px; width:100%;
+    max-height:86vh; overflow-y:auto; position:relative; padding:44px;
+    transform:translateY(24px) scale(.98); opacity:0; transition:transform .45s var(--ease-soft), opacity .45s var(--ease-soft);
+  }
+  .modal-overlay.open .modal-box{ transform:translateY(0) scale(1); opacity:1; }
+  .modal-close{
+    position:absolute; top:20px; right:20px; width:34px; height:34px; border-radius:50%;
+    border:1px solid var(--line); background:none; color:var(--parchment); cursor:pointer;
+    display:flex; align-items:center; justify-content:center; font-size:16px; transition:border-color .3s, transform .3s var(--ease-soft);
+  }
+  .modal-close:hover{ border-color:var(--gold); transform:rotate(90deg); }
+
+  /* Product notes modal */
+  .pm-name{ font-family:'Mrs Saint Delafield',cursive; font-size:52px; margin-bottom:6px; }
+  .pm-tagline{ font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--parchment-dim); font-size:17px; margin-bottom:28px; }
+  .pm-story{ font-size:15px; color:var(--parchment); margin-bottom:30px; max-width:480px; }
+  .pm-pyramid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; }
+  .pm-tier{ border-top:1px solid var(--line); padding-top:14px; }
+  .pm-tier .pm-tier-label{ font-family:'Inter',sans-serif; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:8px; }
+  .pm-tier .pm-tier-notes{ font-family:'Cormorant Garamond',serif; font-size:16px; color:var(--parchment); line-height:1.5; }
+
+  /* Quiz modal */
+  .quiz-progress{ height:2px; background:var(--line); margin-bottom:34px; position:relative; }
+  .quiz-progress-bar{ position:absolute; left:0; top:0; height:100%; background:var(--gold); width:16.6%; transition:width .5s var(--ease-soft); }
+  .quiz-step{ display:none; }
+  .quiz-step.active{ display:block; }
+  .quiz-q{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:26px; margin-bottom:26px; }
+  .quiz-options{ display:flex; flex-direction:column; gap:10px; }
+  .quiz-option{
+    text-align:left; background:none; border:1px solid var(--line); color:var(--parchment);
+    padding:16px 20px; font-family:'Inter',sans-serif; font-size:14px; cursor:pointer;
+    transition:border-color .3s, background .3s;
+  }
+  .quiz-option:hover{ border-color:var(--gold-dim); }
+  .quiz-option.selected{ border-color:var(--gold); background:rgba(200,161,92,0.08); }
+  .quiz-result{ text-align:center; }
+  .quiz-result .qr-label{ font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+  .quiz-result h3{ font-family:'Mrs Saint Delafield',cursive; font-size:56px; font-weight:400; margin-bottom:14px; }
+  .quiz-result img{ width:140px; margin:0 auto 20px; border:1px solid var(--line); }
+  .quiz-result p{ font-size:15px; color:var(--parchment-dim); max-width:400px; margin:0 auto 26px; }
+  .quiz-cta-final{
+    display:inline-block; font-family:'Cormorant Garamond',serif; font-size:14px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink); background:var(--gold); padding:14px 30px; cursor:pointer; border:none;
+  }
+  .quiz-restart{ display:block; margin:18px auto 0; background:none; border:none; color:var(--parchment-dim); font-size:12px; text-decoration:underline; cursor:pointer; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:900px){
+    .maison-grid, .craft-grid{ grid-template-columns:1fr; gap:40px; }
+    .grid, .reviews-grid{ grid-template-columns:repeat(2,1fr); }
+    .footer-grid{ grid-template-columns:1fr 1fr; }
+    .trust-grid{ grid-template-columns:1fr 1fr; }
+    .pm-pyramid{ grid-template-columns:1fr; gap:14px; }
+  }
+  @media (max-width:680px){
+    .wrap{ padding:0 22px; }
+    nav.links{ display:none; }
+    .nav-cta{ display:none; }
+    .burger{ display:flex; }
+    section{ padding:90px 0; }
+    .grid{ grid-template-columns:1fr 1fr; }
+    .reviews-grid{ grid-template-columns:1fr; }
+    .footer-grid{ grid-template-columns:1fr; gap:36px; }
+    form.signup{ flex-direction:column; align-items:stretch; gap:14px; }
+    .hero h1{ font-size:clamp(60px,17vw,110px); }
+    .modal-box{ padding:30px 22px; }
+    .pm-name{ font-size:40px; }
+  }
+  @media (max-width:420px){ .grid{ grid-template-columns:1fr; } }
+
+  @media (prefers-reduced-motion:reduce){
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+    #preloader, .pl-panel{ display:none !important; }
+    body.loaded .hero h1, body.loaded .hero-eyebrow, body.loaded .hero p.tagline, body.loaded .hero .scroll-cue{ opacity:1; filter:none; clip-path:none; }
+  }
+</style>
+</head>
+<body>
+
+<div id="preloader">
+  <span class="pl-word">The Climate</span>
+  <div class="pl-line"></div>
+</div>
+<div class="pl-panel l"></div>
+<div class="pl-panel r"></div>
+
+<header class="nav" id="siteNav">
+  <a href="#top" class="logo">The Climate</a>
+  <nav class="links">
+    <a href="#maison">Maison</a>
+    <a href="#collection">Collection</a>
+    <a href="#quiz">Find Your Scent</a>
+    <a href="#savoir-faire">Savoir-Faire</a>
+  </nav>
+  <div class="nav-right">
+    <button class="wishlist-btn" id="wishlistBtn" aria-label="View wishlist" title="Wishlist">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7.5-4.7-10-9.3C.3 8 2 4 6 4c2.2 0 3.8 1.2 6 3.6C14.2 5.2 15.8 4 18 4c4 0 5.7 4 4 7.7C19.5 16.3 12 21 12 21z"/></svg>
+      <span class="wishlist-count" id="wishlistCount">0</span>
+    </button>
+    <a href="#collection" class="nav-cta">Discover</a>
+  </div>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#maison">Maison</a>
+  <a href="#collection">Collection</a>
+  <a href="#quiz">Find Your Scent</a>
+  <a href="#savoir-faire">Savoir-Faire</a>
+</div>
+
+<main id="top">
+
+  <section class="hero" id="heroSection">
+    <p class="eyebrow hero-eyebrow">Maison de Parfum · Établie en Inde</p>
+    <h1>The Climate</h1>
+    <p class="tagline">A fragrance for every climate, a scent for every soul. Luxury meets identity in every note.</p>
+    <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
+  </section>
+
+  <div class="marquee-band" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Élégance</span><span class="dot">·</span>
+      <span>Minimalisme</span><span class="dot">·</span>
+      <span>Climat</span><span class="dot">·</span>
+      <span>Parfum</span><span class="dot">·</span>
+      <span>Identité</span><span class="dot">·</span>
+      <span>Élégance</span><span class="dot">·</span>
+      <span>Minimalisme</span><span class="dot">·</span>
+      <span>Climat</span><span class="dot">·</span>
+      <span>Parfum</span><span class="dot">·</span>
+      <span>Identité</span><span class="dot">·</span>
+    </div>
+  </div>
+
+  <section class="maison" id="maison">
+    <div class="wrap maison-grid">
+      <div class="reveal maison-mark">Le Climat<br>de l'âme</div>
+      <div class="maison-copy">
+        <p class="eyebrow reveal">La Maison</p>
+        <p class="lede reveal d1">Luxury is not louder. It is left unsaid — and worn instead.</p>
+        <p class="reveal d2">The Climate was founded on a simple belief: that a fragrance should move with you, not for you. Every composition is built the way a French atelier builds a garment — by hand, by instinct, and by restraint.</p>
+        <p class="reveal d3">We work across moods rather than seasons. Some days call for sharpness, others for stillness. Our bottles are designed to hold both — sculpted glass, a single black cap, nothing that needs explaining.</p>
+        <div class="flag-line reveal d3">
+          <span>Made in India</span><span class="sep">—</span><span>Inspired by French Artistry</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="zigzag" aria-hidden="true"></div>
+
+  <section class="collection" id="collection">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">La Collection</p>
+        <h2>A Mood for Every Day</h2>
+        <svg class="underline" viewBox="0 0 160 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 45 2, 115 2, 158 9"/></svg>
+      </div>
+
+      <div class="grid" id="productGrid">
+        <!-- cards injected structure kept static per product -->
+      </div>
+    </div>
+  </section>
+
+  <div class="zigzag oncream" aria-hidden="true"></div>
+
+  <section class="quiz-section light" id="quiz">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Find Your Scent</p>
+        <h2>Not Sure Where to Begin?</h2>
+        <svg class="underline" viewBox="0 0 160 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 45 2, 115 2, 158 9"/></svg>
+        <p class="lead">Four short questions. One fragrance that already feels like yours.</p>
+      </div>
+      <div class="reveal d1">
+        <button class="quiz-cta" id="openQuiz">Take the Quiz</button>
+        <p class="quiz-hint">Takes less than a minute</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="zigzag tocream" aria-hidden="true"></div>
+
+  <section class="craft" id="savoir-faire">
+    <div class="wrap craft-grid">
+      <div class="craft-panel reveal" id="filmPanel">
+        <div class="play-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg></div>
+        <div class="panel-content">
+          <span class="label">L'Atelier</span>
+          <span class="sub">A short film from the atelier — coming soon</span>
+        </div>
+      </div>
+      <div class="craft-copy">
+        <p class="eyebrow reveal">Savoir-Faire</p>
+        <h2 class="reveal d1">Made in India, Inspired by French Artistry</h2>
+        <p class="reveal d2">Our perfumers train in the French tradition — composing in layers, listening for balance between top, heart, and base. But every bottle is blended, poured, and finished by hand in India, where the house was born.</p>
+        <p class="reveal d3">We chose precision over abundance. Each fragrance carries a short list of ingredients, selected for clarity rather than complexity — because a scent, like a silhouette, is strongest when nothing is added just to be seen.</p>
+        <ul class="craft-list reveal d3">
+          <li><span>Composition</span><span>Hand-blended</span></li>
+          <li><span>Origin</span><span>India</span></li>
+          <li><span>Tradition</span><span>French</span></li>
+          <li><span>Ethos</span><span>Minimalisme</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews light" id="reviews">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">From the House List</p>
+        <h2>Words, Not Ours</h2>
+        <svg class="underline" viewBox="0 0 160 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 45 2, 115 2, 158 9"/></svg>
+      </div>
+      <div class="reviews-grid reveal">
+        <div class="review-card">
+          <div class="stars">
+            <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,14.9 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,14.9 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,14.9 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,14.9 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,14.9 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg>
+          </div>
+          <p class="quote">Ethernal Oak doesn't announce itself. Three hours in, someone finally asked what I was wearing — that's exactly the kind of compliment I want.</p>
+          <div class="review-meta">
+            <span>Radhika M. — Ethernal Oak</span>
+            <span class="verified"><svg viewBox="0 0 20 20"><path d="M8 12.5l-3-3 1.4-1.4L8 9.7l5.6-5.6L15 5.5z"/></svg>Verified</span>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="stars">
+            <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,14.9 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,14.9 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,14.9 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,14.9 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,14.9 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg>
+          </div>
+          <p class="quote">Took the quiz half-convinced it would recommend something generic. It matched me to Voyage and it's now the only thing I pack for every trip.</p>
+          <div class="review-meta">
+            <span>Aarav S. — Voyage</span>
+            <span class="verified"><svg viewBox="0 0 20 20"><path d="M8 12.5l-3-3 1.4-1.4L8 9.7l5.6-5.6L15 5.5z"/></svg>Verified</span>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="stars">
+            <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,14.9 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,14.9 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,14.9 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,14.9 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg>
+            <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7 19,7.6 14.2,11.9 15.6,18.2 10,14.9 4.4,18.2 5.8,11.9 1,7.6 7.4,7"/></svg>
+          </div>
+          <p class="quote">Bloom is the first perfume I've worn where people ask what it is instead of just saying I smell nice. Understated in the best way.</p>
+          <div class="review-meta">
+            <span>Naina K. — Bloom</span>
+            <span class="verified"><svg viewBox="0 0 20 20"><path d="M8 12.5l-3-3 1.4-1.4L8 9.7l5.6-5.6L15 5.5z"/></svg>Verified</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter" id="contact">
+    <div class="wrap">
+      <p class="eyebrow reveal">La Liste</p>
+      <h2 class="reveal d1">Be first to know each new mood</h2>
+      <p class="reveal d2">Early access to new fragrances, limited releases, and notes from the atelier — nothing else.</p>
+      <form class="signup reveal d3" id="signupForm">
+        <input type="email" required placeholder="Your email address" aria-label="Email address">
+        <button type="submit">Subscribe →</button>
+      </form>
+      <p class="form-note" id="formNote">Thank you — you're on La Liste.</p>
+
+      <div class="tier-row reveal d3">
+        <div class="tier-chip">
+          <span class="tier-name">Découverte</span>
+          <span class="tier-desc">Early access to new releases before they're announced publicly.</span>
+        </div>
+        <div class="tier-chip">
+          <span class="tier-name">Maison</span>
+          <span class="tier-desc">A complimentary discovery sample on your birthday month.</span>
+        </div>
+        <div class="tier-chip">
+          <span class="tier-name">Atelier</span>
+          <span class="tier-desc">First right of access to limited and small-batch fragrances.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="trust-row">
+  <div class="wrap trust-grid">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 3l7 3.5v6c0 5-3.2 7.8-7 8.5-3.8-.7-7-3.5-7-8.5v-6L12 3z"/></svg>
+      <span>Hand-finished bottles, made in India</span>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>
+      <span>Complimentary returns within 14 days</span>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="1"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
+      <span>Secure checkout, every order</span>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M3 7h13l5 5v5h-2M3 7v10h2M16 7v10"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="17.5" cy="17.5" r="1.5"/></svg>
+      <span>Discreet, tracked shipping nationwide</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo">The Climate</span>
+        <p>A fragrance for every climate, a scent for every soul. Made in India, inspired by French artistry.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Maison</h4>
+        <ul>
+          <li><a href="#maison">Our Story</a></li>
+          <li><a href="#savoir-faire">Savoir-Faire</a></li>
+          <li><a href="#collection">Collection</a></li>
+          <li><a href="#quiz">Find Your Scent</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Assistance</h4>
+        <ul>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#" id="footerShipping" data-action="open-shipping">Shipping</a></li>
+          <li><a href="#" id="footerReturns" data-action="open-returns">Returns</a></li>
+          <li><a href="#" id="footerSampleKit" data-action="buy-sample">Discovery Set</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Pinterest</a></li>
+          <li><a href="#">Email</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 The Climate. All rights reserved. Made in India.</span>
+      <a href="#top" class="back-top">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Shipping policy modal -->
+<div class="modal-overlay" id="shippingModal" role="dialog" aria-modal="true" aria-labelledby="shippingTitle">
+  <div class="modal-box">
+    <button class="modal-close" id="shippingClose" aria-label="Close">✕</button>
+    <h3 class="pm-name" id="shippingTitle">Shipping Policy</h3>
+    <p class="pm-story">
+      Every order is packed by hand in protective, cushioned casing designed for fragile glass —
+      each bottle is individually wrapped and braced to prevent movement in transit, in line with
+      standard commercial carrier requirements for glass and liquid goods.
+    </p>
+    <p class="pm-story">
+      Orders are processed within 1–2 business days and shipped via tracked, insured courier.
+      Domestic delivery typically takes 3–6 business days depending on location; a tracking link
+      is emailed once your order leaves the atelier. Shipping costs and any applicable duties are
+      calculated at checkout. Because fragrance is classified as a restricted/hazardous good by
+      some carriers and customs authorities, international shipping availability and transit times
+      may vary by destination.
+    </p>
+    <p class="pm-story" style="margin-bottom:0;">
+      In the rare event a bottle arrives damaged, please contact us within 48 hours of delivery
+      with photos of the packaging and product, and we will arrange a replacement or refund.
+    </p>
+  </div>
+</div>
+
+<!-- Returns & refund policy modal -->
+<div class="modal-overlay" id="returnsModal" role="dialog" aria-modal="true" aria-labelledby="returnsTitle">
+  <div class="modal-box">
+    <button class="modal-close" id="returnsClose" aria-label="Close">✕</button>
+    <h3 class="pm-name" id="returnsTitle">Return &amp; Refund Policy</h3>
+    <p class="pm-story">
+      As fragrance is a manufactured cosmetic product, unopened and unused bottles in their
+      original packaging may be returned within 14 days of delivery for a full refund, less any
+      original shipping charges. For hygiene and safety reasons, we are unable to accept returns
+      on opened, used, or tester-seal-broken bottles unless the product arrived defective or
+      damaged in transit.
+    </p>
+    <p class="pm-story">
+      To start a return, contact us with your order number; once approved, we'll provide return
+      instructions and a shipping label where applicable. Refunds are issued to the original
+      payment method within 5–7 business days of the returned item passing inspection.
+    </p>
+    <p class="pm-story" style="margin-bottom:0;">
+      Discovery/sample sets are final sale and not eligible for return, given their single-use
+      format. Damaged or defective items are always covered regardless of the above — just reach
+      out and we'll make it right.
+    </p>
+  </div>
+</div>
+
+<!-- Product notes modal -->
+<div class="modal-overlay" id="productModal" role="dialog" aria-modal="true" aria-labelledby="pmName">
+  <div class="modal-box">
+    <button class="modal-close" id="pmClose" aria-label="Close">✕</button>
+    <h3 class="pm-name" id="pmName"></h3>
+    <p class="pm-tagline" id="pmTagline"></p>
+    <p class="pm-story" id="pmStory"></p>
+    <div class="pm-pyramid">
+      <div class="pm-tier"><span class="pm-tier-label">Top</span><span class="pm-tier-notes" id="pmTop"></span></div>
+      <div class="pm-tier"><span class="pm-tier-label">Heart</span><span class="pm-tier-notes" id="pmHeart"></span></div>
+      <div class="pm-tier"><span class="pm-tier-label">Base</span><span class="pm-tier-notes" id="pmBase"></span></div>
+    </div>
+    <div style="margin-top:34px; text-align:center;">
+      <button class="quiz-cta-final" id="pmBuyNow" data-action="buy-now">Buy Now — Full Bottle</button>
+      <p style="margin-top:14px; font-size:12px; color:var(--parchment-dim); letter-spacing:.02em;">🔒 Secure commercial checkout supporting Card, Net Banking, and UPI — processed via Stripe.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Quiz modal -->
+<div class="modal-overlay" id="quizModal" role="dialog" aria-modal="true" aria-labelledby="quizTitle">
+  <div class="modal-box">
+    <button class="modal-close" id="quizClose" aria-label="Close">✕</button>
+    <p class="eyebrow" id="quizTitle" style="margin-bottom:20px;">Find Your Scent</p>
+    <div class="quiz-progress"><div class="quiz-progress-bar" id="quizProgressBar"></div></div>
+
+    <div class="quiz-step active" data-step="0">
+      <p class="quiz-q">Pick a mood that feels like today.</p>
+      <div class="quiz-options" data-q="0">
+        <button class="quiz-option" data-key="chic">Crisp &amp; luminous</button>
+        <button class="quiz-option" data-key="eternal_oak">Dark &amp; grounded</button>
+        <button class="quiz-option" data-key="eternal">Warm &amp; timeless</button>
+      </div>
+    </div>
+
+    <div class="quiz-step" data-step="1">
+      <p class="quiz-q">Choose a place you'd rather be.</p>
+      <div class="quiz-options" data-q="1">
+        <button class="quiz-option" data-key="chic">A quiet atelier at dawn</button>
+        <button class="quiz-option" data-key="eternal_oak">A forest after rain</button>
+        <button class="quiz-option" data-key="voyage">A waterfall in motion</button>
+      </div>
+    </div>
+
+    <div class="quiz-step" data-step="2">
+      <p class="quiz-q">Which hour suits you best?</p>
+      <div class="quiz-options" data-q="2">
+        <button class="quiz-option" data-key="bloom">Golden morning</button>
+        <button class="quiz-option" data-key="eternal">Midnight</button>
+        <button class="quiz-option" data-key="one_flow">Any hour — one note is enough</button>
+      </div>
+    </div>
+
+    <div class="quiz-step" data-step="3">
+      <p class="quiz-q">Pick a texture you're drawn to.</p>
+      <div class="quiz-options" data-q="3">
+        <button class="quiz-option" data-key="bloom">Petals</button>
+        <button class="quiz-option" data-key="one_flow">Rain on stone</button>
+        <button class="quiz-option" data-key="voyage">Salt &amp; leather</button>
+      </div>
+    </div>
+
+    <div class="quiz-step quiz-result" data-step="4">
+      <p class="qr-label">Your Match</p>
+      <img id="quizResultImg" src="" alt="">
+      <h3 id="quizResultName"></h3>
+      <p id="quizResultDesc"></p>
+      <button class="quiz-cta-final" id="quizViewProduct">View This Fragrance</button>
+      <button class="quiz-restart" id="quizRestart">Start over</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ---------- Product data ----------
+  const PRODUCTS = {
+    chic: {
+      name:"Chic", num:"01", image:"images/chic.jpg",
+      noteLine:"Blanc, ambré, sans excès.",
+      tagline:"White musk, amber, effortless.",
+      story:"Poured like silk, Chic is the sound of a door closing softly — effortless, undone, complete.",
+      top:"Bergamot, Pink Pepper", heart:"White Musk, Iris", base:"Amber, Cedarwood"
+    },
+    eternal: {
+      name:"Eternal", num:"02", image:"images/eternal.jpg",
+      noteLine:"Une promesse qui ne s'efface pas.",
+      tagline:"A promise that doesn't fade.",
+      story:"Eternal holds its warmth long after the room has gone quiet — a fragrance built to be remembered, not just worn.",
+      top:"Saffron, Blood Orange", heart:"Rose, Oud", base:"Vanilla, Amber"
+    },
+    eternal_oak: {
+      name:"Ethernal Oak", num:"03", image:"images/eternal_oak.jpg",
+      noteLine:"Bois noir, fumée, mémoire.",
+      tagline:"Dark wood, smoke, memory.",
+      story:"Ethernal Oak is grounded and unhurried — the scent of old wood, low light, and a conversation that doesn't need to end.",
+      top:"Smoked Tea, Black Pepper", heart:"Vetiver, Leather", base:"Dark Oak, Tonka Bean"
+    },
+    voyage: {
+      name:"Voyage", num:"04", image:"images/voyage.jpg",
+      noteLine:"Sel marin, cuir, horizon.",
+      tagline:"Sea salt, leather, horizon.",
+      story:"Voyage is restless in the best way — built for departures, long roads, and the particular calm of not knowing what's next.",
+      top:"Sea Salt, Bergamot", heart:"Fig Leaf, Jasmine", base:"Driftwood, Musk"
+    },
+    one_flow: {
+      name:"One Flow", num:"05", image:"images/one_flow.jpg",
+      noteLine:"Une seule note. Une seule vérité.",
+      tagline:"One note. One truth.",
+      story:"One Flow is deliberately singular — a single idea, worn without decoration, for days that don't need explaining.",
+      top:"Rain Accord, Mint", heart:"Green Tea, Moss", base:"White Musk, Cedar"
+    },
+    bloom: {
+      name:"Bloom", num:"06", image:"images/bloom.jpg",
+      noteLine:"Jasmin sauvage, lumière première.",
+      tagline:"Wild jasmine, first light.",
+      story:"Bloom opens slowly, like the first hour of morning — soft, unforced, and entirely its own season.",
+      top:"Wild Jasmine, Neroli", heart:"Iris, Tuberose", base:"Sandalwood, White Musk"
+    },
+    temptation: {
+      name:"Temptation", num:"07", image:"images/temptation.jpg",
+      noteLine:"Ambre riche, une invitation qui s'attarde.",
+      tagline:"Rich amber, designed to linger.",
+      story:"Temptation doesn't ask to be noticed — it lingers just long enough that you notice it yourself, and wonder why you didn't look away sooner.",
+      top:"Cardamom, Blood Orange", heart:"Amber, Tobacco Flower", base:"Vanilla, Warm Musk"
+    },
+    omber_soul: {
+      name:"Omber Soul", num:"08", image:"images/omber_soul.jpg",
+      noteLine:"Terre riche, âme silencieuse.",
+      tagline:"Earthy, calm, and quietly powerful.",
+      story:"Omber Soul moves slowly and asks nothing of you — grounded and unhurried, the kind of quiet that feels like strength.",
+      top:"Black Pepper, Clary Sage", heart:"Patchouli, Cedarwood", base:"Vetiver, Amber"
+    },
+    dark_essence: {
+      name:"Dark Essence", num:"09", image:"images/dark_essence.jpg",
+      noteLine:"Camomille douce, calme profond.",
+      tagline:"Gentle chamomile, soothing undertones.",
+      story:"Dark Essence is not dark in mood but in depth — a soft warmth that settles rather than announces itself.",
+      top:"Chamomile, Bergamot", heart:"Lavender, Soft Spice", base:"Sandalwood, White Musk"
+    },
+    vanilla_lace: {
+      name:"Vanilla Lace", num:"10", image:"images/vanilla_lace.jpg",
+      noteLine:"Vanille soyeuse, un murmure de musc.",
+      tagline:"Silky vanilla, a whisper of musk.",
+      story:"Vanilla Lace is soft without being simple — a sweetness held together by something quieter underneath.",
+      top:"Pear, Pink Pepper", heart:"Vanilla Orchid, Silk Musk", base:"Tonka Bean, White Musk"
+    },
+    mystic_lavender: {
+      name:"Mystic Lavender", num:"11", image:"images/mystic_lavender.jpg",
+      noteLine:"Lavande sauvage, brume mystique.",
+      tagline:"Wild lavender, wrapped in soft mist.",
+      story:"Mystic Lavender drifts rather than arrives — a hush of lavender fields caught in early fog, calm and a little otherworldly.",
+      top:"Lavender, Bergamot", heart:"Iris, Violet", base:"Soft Amber, Musk"
+    }
+  };
+
+  // ---------- Scroll reveal observer (defined early so renderGrid can use it) ----------
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+    });
+  }, { threshold: 0.15 });
+
+  // ---------- Render product grid (fallback data first, then try live backend) ----------
+  const grid = document.getElementById('productGrid');
+  let order = ['chic','eternal','eternal_oak','voyage','one_flow','bloom','temptation','omber_soul','dark_essence','vanilla_lace','mystic_lavender'];
+
+  function renderGrid(productsMap, orderArr) {
+    grid.innerHTML = '';
+    orderArr.forEach((key, i) => {
+      const p = productsMap[key];
+      if (!p) return;
+      const article = document.createElement('article');
+      article.className = 'card reveal' + (i % 3 === 1 ? ' d1' : i % 3 === 2 ? ' d2' : '');
+      article.id = 'product-' + key;
+      article.innerHTML = `
+        <div class="card-frame">
+          <img src="${p.image}" alt="${p.name} — The Climate perfume bottle" loading="lazy">
+          <button class="wishlist-heart" data-key="${key}" aria-label="Save ${p.name} to wishlist">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.7-10-9.3C.3 8 2 4 6 4c2.2 0 3.8 1.2 6 3.6C14.2 5.2 15.8 4 18 4c4 0 5.7 4 4 7.7C19.5 16.3 12 21 12 21z"/></svg>
+          </button>
+        </div>
+        <div class="card-info">
+          <span class="num">${p.num}</span>
+          <h3>${p.name}</h3>
+          <p class="note-line">${p.noteLine}</p>
+          <button class="view-notes" data-key="${key}" data-action="view-notes">View Notes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+          <button class="view-notes buy-now-card" data-key="${key}" data-action="buy-now" style="margin-left:18px;">Buy Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+        </div>
+      `;
+      grid.appendChild(article);
+    });
+    grid.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    refreshWishlistUI();
+  }
+
+  renderGrid(PRODUCTS, order);
+
+  // Progressive enhancement: if a backend is running (see /server), pull the live catalog.
+  // Falls back silently to the embedded data above when no backend is present (e.g. static hosting).
+  fetch('/api/products').then(r => r.ok ? r.json() : Promise.reject()).then(data => {
+    if (!data || !Array.isArray(data.products) || !data.products.length) return;
+    data.products.forEach(p => { PRODUCTS[p.key] = p; });
+    order = data.products.slice().sort((a, b) => (a.num || '').localeCompare(b.num || '')).map(p => p.key);
+    renderGrid(PRODUCTS, order);
+  }).catch(() => { /* no backend available — embedded catalog already rendered */ });
+
+  // ---------- Preloader ----------
+  const MIN_PRELOAD_MS = 2000;
+  const startT = Date.now();
+  window.addEventListener('load', () => {
+    const wait = Math.max(0, MIN_PRELOAD_MS - (Date.now() - startT));
+    setTimeout(() => document.body.classList.add('loaded'), wait);
+  });
+  setTimeout(() => document.body.classList.add('loaded'), 3800);
+
+  // ---------- Hero parallax (subtle, single signature effect) ----------
+  const heroSection = document.getElementById('heroSection');
+  heroSection.addEventListener('mousemove', (e) => {
+    const r = heroSection.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width - 0.5;
+    const py = (e.clientY - r.top) / r.height - 0.5;
+    heroSection.style.setProperty('--mx', (px * 14) + 'px');
+    heroSection.style.setProperty('--my', (py * 14) + 'px');
+  });
+
+  // ---------- Sticky nav ----------
+  const nav = document.getElementById('siteNav');
+  let lastY = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    nav.classList.toggle('scrolled', y > 40);
+    if (y > lastY && y > 200) nav.classList.add('hide'); else nav.classList.remove('hide');
+    lastY = y;
+  }, { passive:true });
+
+  // ---------- Mobile menu ----------
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    const open = burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    burger.classList.remove('open'); mobileMenu.classList.remove('open');
+    burger.setAttribute('aria-expanded', false); document.body.style.overflow = '';
+  }));
+
+  // ---------- Scroll reveal (non-card elements: section heads, copy blocks, etc.) ----------
+  document.querySelectorAll('.reveal, .section-head').forEach(el => io.observe(el));
+
+  // ---------- Newsletter ----------
+  const form = document.getElementById('signupForm');
+  const note = document.getElementById('formNote');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = form.querySelector('input[type="email"]').value;
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      const data = await res.json().catch(() => null);
+      if (res.ok) {
+        note.textContent = (data && data.alreadySubscribed)
+          ? "You're already on La Liste — thank you."
+          : "Thank you — you're on La Liste.";
+      } else {
+        note.textContent = (data && data.error) || "Thank you — you're on La Liste.";
+      }
+    } catch (err) {
+      // No backend running (e.g. static hosting) — degrade gracefully.
+      note.textContent = "Thank you — you're on La Liste.";
+    }
+    note.classList.add('show');
+    form.reset();
+  });
+
+  // ---------- Wishlist ----------
+  const WL_KEY = 'climate_wishlist';
+  function getWishlist(){ try { return JSON.parse(localStorage.getItem(WL_KEY)) || []; } catch(e){ return []; } }
+  function setWishlist(arr){ localStorage.setItem(WL_KEY, JSON.stringify(arr)); }
+  function refreshWishlistUI(){
+    const list = getWishlist();
+    document.querySelectorAll('.wishlist-heart').forEach(btn => {
+      btn.classList.toggle('saved', list.includes(btn.dataset.key));
+    });
+    const countEl = document.getElementById('wishlistCount');
+    const wlBtn = document.getElementById('wishlistBtn');
+    countEl.textContent = list.length;
+    countEl.classList.toggle('show', list.length > 0);
+    wlBtn.classList.toggle('has-items', list.length > 0);
+  }
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.wishlist-heart');
+    if (!btn) return;
+    const key = btn.dataset.key;
+    let list = getWishlist();
+    if (list.includes(key)) list = list.filter(k => k !== key); else list.push(key);
+    setWishlist(list);
+    refreshWishlistUI();
+  });
+  document.getElementById('wishlistBtn').addEventListener('click', () => {
+    document.getElementById('collection').scrollIntoView({ behavior:'smooth' });
+  });
+  refreshWishlistUI();
+
+  // ---------- Product notes modal ----------
+  const productModal = document.getElementById('productModal');
+  function openProductModal(key){
+    const p = PRODUCTS[key];
+    document.getElementById('pmName').textContent = p.name;
+    document.getElementById('pmTagline').textContent = p.tagline;
+    document.getElementById('pmStory').textContent = p.story;
+    document.getElementById('pmTop').textContent = p.top;
+    document.getElementById('pmHeart').textContent = p.heart;
+    document.getElementById('pmBase').textContent = p.base;
+    productModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(overlay){ overlay.classList.remove('open'); document.body.style.overflow = ''; }
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('.view-notes');
+    if (trigger) openProductModal(trigger.dataset.key);
+  });
+  document.getElementById('pmClose').addEventListener('click', () => closeModal(productModal));
+  productModal.addEventListener('click', (e) => { if (e.target === productModal) closeModal(productModal); });
+
+  // ---------- Quiz ----------
+  const quizModal = document.getElementById('quizModal');
+  const quizSteps = Array.from(quizModal.querySelectorAll('.quiz-step'));
+  const progressBar = document.getElementById('quizProgressBar');
+  let quizStep = 0;
+  const answers = [];
+  const scoreOrder = ['chic','eternal','eternal_oak','voyage','one_flow','bloom'];
+
+  function showStep(i){
+    quizSteps.forEach(s => s.classList.toggle('active', Number(s.dataset.step) === i));
+    progressBar.style.width = (((i+1) / quizSteps.length) * 100) + '%';
+  }
+  function openQuizModal(){
+    quizStep = 0; answers.length = 0;
+    quizModal.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+    showStep(0);
+    quizModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  document.getElementById('openQuiz').addEventListener('click', openQuizModal);
+  document.getElementById('quizClose').addEventListener('click', () => closeModal(quizModal));
+  quizModal.addEventListener('click', (e) => { if (e.target === quizModal) closeModal(quizModal); });
+
+  quizModal.addEventListener('click', (e) => {
+    const opt = e.target.closest('.quiz-option');
+    if (!opt) return;
+    const group = opt.closest('.quiz-options');
+    group.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+    opt.classList.add('selected');
+    answers[quizStep] = opt.dataset.key;
+    setTimeout(() => {
+      if (quizStep < 3) { quizStep++; showStep(quizStep); }
+      else { showResult(); quizStep = 4; showStep(4); }
+    }, 260);
+  });
+
+  function showResult(){
+    const tally = {};
+    answers.forEach(k => { tally[k] = (tally[k] || 0) + 1; });
+    let best = scoreOrder[0], bestScore = -1;
+    scoreOrder.forEach(k => { if ((tally[k]||0) > bestScore) { bestScore = tally[k]||0; best = k; } });
+    const p = PRODUCTS[best];
+    document.getElementById('quizResultImg').src = p.image;
+    document.getElementById('quizResultImg').alt = p.name;
+    document.getElementById('quizResultName').textContent = p.name;
+    document.getElementById('quizResultDesc').textContent = p.story;
+    document.getElementById('quizViewProduct').onclick = () => {
+      closeModal(quizModal);
+      document.getElementById('product-' + best).scrollIntoView({ behavior:'smooth', block:'center' });
+    };
+  }
+  document.getElementById('quizRestart').addEventListener('click', openQuizModal);
+
+  // ---------- Shipping & Returns policy modals (reuse existing modal system) ----------
+  const shippingModal = document.getElementById('shippingModal');
+  const returnsModal = document.getElementById('returnsModal');
+  function openModal(overlay){ overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+
+  document.getElementById('footerShipping').addEventListener('click', (e) => { e.preventDefault(); openModal(shippingModal); });
+  document.getElementById('footerReturns').addEventListener('click', (e) => { e.preventDefault(); openModal(returnsModal); });
+  document.getElementById('shippingClose').addEventListener('click', () => closeModal(shippingModal));
+  document.getElementById('returnsClose').addEventListener('click', () => closeModal(returnsModal));
+  shippingModal.addEventListener('click', (e) => { if (e.target === shippingModal) closeModal(shippingModal); });
+  returnsModal.addEventListener('click', (e) => { if (e.target === returnsModal) closeModal(returnsModal); });
+
+  // ---------- Escape key closes any open modal ----------
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (productModal.classList.contains('open')) closeModal(productModal);
+      if (quizModal.classList.contains('open')) closeModal(quizModal);
+      if (shippingModal.classList.contains('open')) closeModal(shippingModal);
+      if (returnsModal.classList.contains('open')) closeModal(returnsModal);
+    }
+  });
+</script>
+
+<script>
+  // =====================================================================
+  // FRAGRANCE STORE — COMMERCIAL CHECKOUT CONFIGURATION
+  // Paste your live Stripe Payment Link URLs below. Each link is a
+  // Stripe-hosted, PCI-compliant checkout page — no card data ever
+  // touches this site directly. See the setup checklist provided
+  // alongside this file for how to generate these links and enable
+  // Card, Net Banking, and UPI on your Stripe account.
+  // =====================================================================
+  const FRAGRANCE_STORE_CONFIG = {
+    mainProductCheckoutUrl: "YOUR_STRIPE_LIVE_LINK_HERE", // Must support Card, Net Banking, and UPI
+    sampleKitCheckoutUrl: "YOUR_STRIPE_SAMPLE_LINK_HERE"  // Placeholder if applicable
+  };
+
+  function isConfiguredCheckoutUrl(url) {
+    return typeof url === 'string' && /^https?:\/\//i.test(url) && !url.includes('YOUR_STRIPE');
+  }
+
+  function goToCheckout(kind) {
+    const url = kind === 'sample'
+      ? FRAGRANCE_STORE_CONFIG.sampleKitCheckoutUrl
+      : FRAGRANCE_STORE_CONFIG.mainProductCheckoutUrl;
+
+    if (!isConfiguredCheckoutUrl(url)) {
+      console.warn('[The Climate] Checkout URL not yet configured for "' + kind + '". Paste your live Stripe Payment Link into FRAGRANCE_STORE_CONFIG at the bottom of index.html.');
+      window.alert('Checkout is being finalized — please check back shortly, or contact us directly to complete your order.');
+      return;
+    }
+    // Secure, direct redirect to the Stripe-hosted checkout page (Card, Net Banking, UPI).
+    window.location.assign(url);
+  }
+
+  document.addEventListener('click', function (e) {
+    const trigger = e.target.closest('[data-action="buy-now"]');
+    if (trigger) {
+      e.preventDefault();
+      goToCheckout('main');
+      return;
+    }
+    const sampleTrigger = e.target.closest('[data-action="buy-sample"]');
+    if (sampleTrigger) {
+      e.preventDefault();
+      goToCheckout('sample');
+    }
+  });
+</script>
+
+</body>
+</html>

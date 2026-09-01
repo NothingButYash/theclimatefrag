@@ -1,0 +1,14 @@
+{
+  "name": "the-climate-backend",
+  "version": "1.0.0",
+  "description": "Backend for The Climate — Maison de Parfum. Serves the site plus a small API for the product catalog, newsletter signups, and contact messages.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

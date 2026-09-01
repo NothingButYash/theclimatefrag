@@ -1,0 +1,56 @@
+[
+  { "key":"chic", "name":"Chic", "num":"01", "image":"images/chic.jpg",
+    "noteLine":"Blanc, ambré, sans excès.", "tagline":"White musk, amber, effortless.",
+    "story":"Poured like silk, Chic is the sound of a door closing softly — effortless, undone, complete.",
+    "top":"Bergamot, Pink Pepper", "heart":"White Musk, Iris", "base":"Amber, Cedarwood" },
+
+  { "key":"eternal", "name":"Eternal", "num":"02", "image":"images/eternal.jpg",
+    "noteLine":"Une promesse qui ne s'efface pas.", "tagline":"A promise that doesn't fade.",
+    "story":"Eternal holds its warmth long after the room has gone quiet — a fragrance built to be remembered, not just worn.",
+    "top":"Saffron, Blood Orange", "heart":"Rose, Oud", "base":"Vanilla, Amber" },
+
+  { "key":"eternal_oak", "name":"Ethernal Oak", "num":"03", "image":"images/eternal_oak.jpg",
+    "noteLine":"Bois noir, fumée, mémoire.", "tagline":"Dark wood, smoke, memory.",
+    "story":"Ethernal Oak is grounded and unhurried — the scent of old wood, low light, and a conversation that doesn't need to end.",
+    "top":"Smoked Tea, Black Pepper", "heart":"Vetiver, Leather", "base":"Dark Oak, Tonka Bean" },
+
+  { "key":"voyage", "name":"Voyage", "num":"04", "image":"images/voyage.jpg",
+    "noteLine":"Sel marin, cuir, horizon.", "tagline":"Sea salt, leather, horizon.",
+    "story":"Voyage is restless in the best way — built for departures, long roads, and the particular calm of not knowing what's next.",
+    "top":"Sea Salt, Bergamot", "heart":"Fig Leaf, Jasmine", "base":"Driftwood, Musk" },
+
+  { "key":"one_flow", "name":"One Flow", "num":"05", "image":"images/one_flow.jpg",
+    "noteLine":"Une seule note. Une seule vérité.", "tagline":"One note. One truth.",
+    "story":"One Flow is deliberately singular — a single idea, worn without decoration, for days that don't need explaining.",
+    "top":"Rain Accord, Mint", "heart":"Green Tea, Moss", "base":"White Musk, Cedar" },
+
+  { "key":"bloom", "name":"Bloom", "num":"06", "image":"images/bloom.jpg",
+    "noteLine":"Jasmin sauvage, lumière première.", "tagline":"Wild jasmine, first light.",
+    "story":"Bloom opens slowly, like the first hour of morning — soft, unforced, and entirely its own season.",
+    "top":"Wild Jasmine, Neroli", "heart":"Iris, Tuberose", "base":"Sandalwood, White Musk" },
+
+  { "key":"temptation", "name":"Temptation", "num":"07", "image":"images/temptation.jpg",
+    "noteLine":"Ambre riche, une invitation qui s'attarde.", "tagline":"Rich amber, designed to linger.",
+    "story":"Temptation doesn't ask to be noticed — it lingers just long enough that you notice it yourself, and wonder why you didn't look away sooner.",
+    "top":"Cardamom, Blood Orange", "heart":"Amber, Tobacco Flower", "base":"Vanilla, Warm Musk" },
+
+  { "key":"omber_soul", "name":"Omber Soul", "num":"08", "image":"images/omber_soul.jpg",
+    "noteLine":"Terre riche, âme silencieuse.", "tagline":"Earthy, calm, and quietly powerful.",
+    "story":"Omber Soul moves slowly and asks nothing of you — grounded and unhurried, the kind of quiet that feels like strength.",
+    "top":"Black Pepper, Clary Sage", "heart":"Patchouli, Cedarwood", "base":"Vetiver, Amber" },
+
+  { "key":"dark_essence", "name":"Dark Essence", "num":"09", "image":"images/dark_essence.jpg",
+    "noteLine":"Camomille douce, calme profond.", "tagline":"Gentle chamomile, soothing undertones.",
+    "story":"Dark Essence is not dark in mood but in depth — a soft warmth that settles rather than announces itself.",
+    "top":"Chamomile, Bergamot", "heart":"Lavender, Soft Spice", "base":"Sandalwood, White Musk" },
+
+  { "key":"vanilla_lace", "name":"Vanilla Lace", "num":"10", "image":"images/vanilla_lace.jpg",
+    "noteLine":"Vanille soyeuse, un murmure de musc.", "tagline":"Silky vanilla, a whisper of musk.",
+    "story":"Vanilla Lace is soft without being simple — a sweetness held together by something quieter underneath.",
+    "top":"Pear, Pink Pepper", "heart":"Vanilla Orchid, Silk Musk", "base":"Tonka Bean, White Musk" },
+
+  { "key":"mystic_lavender", "name":"Mystic Lavender", "num":"11", "image":"images/mystic_lavender.jpg",
+    "noteLine":"Lavande sauvage, brume mystique.", "tagline":"Wild lavender, wrapped in soft mist.",
+    "story":"Mystic Lavender drifts rather than arrives — a hush of lavender fields caught in early fog, calm and a little otherworldly.",
+    "top":"Lavender, Bergamot", "heart":"Iris, Violet", "base":"Soft Amber, Musk" }
+]
